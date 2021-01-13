@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.Timer;
 
 import menu.UserControls;
+import util.ArrayEnum;
 
 public class DemoArray {
 	
@@ -18,26 +19,20 @@ public class DemoArray {
 	
 	
 	public void createIntegerArray(int num) {
-		Integer[] newArray = new Integer[num];
+		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
 		for(int i = 0; i < num; i ++) {
 			System.out.println("Chose a number for index: " + i);
 			Scanner scan = new Scanner(System.in);
 			int input = scan.nextInt();
-			newArray[i] = input;
+			newArray.getArray()[i] = input;
 		}
 		
 		System.out.println("your new array looks like this!");
-		System.out.println(Arrays.toString(newArray));
-		
-//		for(int i = 0; i < newArray.length; i++) {
-//			System.out.println(newArray[i]);
-//		}
-		
-		System.out.println(newArray);
+		System.out.println(newArray.getArray().toString());		
 		
 		System.out.println("\n ------------------------------------------");
 		
-		ArraysList.addIntToList(newArray);
+		ArraysList.addToList(newArray);
 		
 		UserControls user = new UserControls();
 		user.returnToMainMenu();
@@ -63,23 +58,24 @@ public class DemoArray {
 
 	public void createStringArray(int num) {
 		
-		String[] newArray = new String[num];
+		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
 		for(int i = 0; i < num; i ++) {
 			
 			System.out.println("Write a string for index: " + i);
 			Scanner scan = new Scanner(System.in);
 			String input = scan.nextLine();
-			newArray[i] = input;
+			newArray.getArray()[i] = input;
 		}
 		
 		System.out.println("your new array looks like this!");
-		System.out.println(Arrays.toString(newArray));
+		System.out.println(newArray.getArray().toString());
+		
 		
 		System.out.println(newArray);		
 	
 		System.out.println("\n ------------------------------------------");
 		
-		ArraysList.addStrToList(newArray);
+		System.out.println(newArray.getArray().toString());
 		
 		UserControls user = new UserControls();
 		user.returnToMainMenu();
@@ -87,22 +83,23 @@ public class DemoArray {
 	}
 	
 	public void createDoubleArray(int num) {
-		Double[] newArray = new Double[num];
+		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
+
 		for(int i = 0; i < num; i ++) {
 			System.out.println("Write a double for index: " + i);
 			Scanner scan = new Scanner(System.in);
 			Double input = scan.nextDouble();
-			newArray[i] = input;
+			newArray.getArray()[i] = input;
 		}
 		
 		System.out.println("your new array looks like this!");
-		System.out.println(Arrays.toString(newArray));
+		System.out.println(newArray.getArray().toString());
 		
 		System.out.println(newArray);
 		
 		System.out.println("\n ------------------------------------------");
 		
-		ArraysList.addDblToList(newArray);
+		ArraysList.addToList(newArray);
 		
 		UserControls user = new UserControls();
 		user.returnToMainMenu();
