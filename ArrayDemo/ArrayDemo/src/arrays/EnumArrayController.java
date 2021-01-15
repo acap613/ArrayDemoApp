@@ -6,7 +6,7 @@ public class EnumArrayController {
 	
 	private ArrayEnum type;
 	
-	private Object[] arrs;
+	private Object[] arrs;	
 
 	public EnumArrayController(ArrayEnum type, int size) {
 		super();
@@ -32,5 +32,10 @@ public class EnumArrayController {
 	public Object[] getArray() {
 		return arrs;
 	}
+	
+	public ArrayEnum getType() {
+		return type;
+	}
+	
 
 }

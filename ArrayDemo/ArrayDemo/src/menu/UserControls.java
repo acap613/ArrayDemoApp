@@ -2,18 +2,19 @@ package menu;
 
 import java.util.Scanner;
 
+import arrays.Array;
 import arrays.ArraysList;
 import arrays.DemoArray;
+import util.ArrayEnum;
 
 public class UserControls {
 	
-	public void printMenu() {
-		System.out.println("|======Welcome to Arrays Demo!==========|");			
+	public void printMenu() {					
 		System.out.println("What would you like to do? \n" +
 							"1.) Make a new Array \n" +
 							"2.) Edit data in existing Array \n" +
 							"3.) Show Arrays \n" +
-							"4.) Exit Porgarm \n");
+							"4.) Exit \n");
 		
 		Scanner scan = new Scanner(System.in);
 		int input = scan.nextInt();
@@ -22,37 +23,35 @@ public class UserControls {
 		switch(input) {
 		 	case 1: 
 		 		System.out.println("------------------------------------");
-		 		System.out.println("you picked new array!");		 		
+		 		System.out.println("You picked make new array\n");		 		
 				createNewArray();
 		 		break;
 		 	case 2: 
 		 		System.out.println("------------------------------------");
-
-		 		System.out.println("you picked edit array!"); 
+		 		System.out.println("You picked edit existing array\n"); 		 		
+		 		ArraysList.chooseEditArray();
 		 		break;
 		 	case 3: 
-		 		System.out.println("------------------------------------");
-
-		 		System.out.println("You picked show Arrays!"); 
+		 		System.out.println("\n------------------------------------");
+		 		System.out.println("You picked show Arrays!\n"); 
 		 		showArrays();
 		 		
 		 		break;
 		 	case 4: 
 		 		System.out.println("------------------------------------");
-
-		 		System.out.println("goodbye...");
-		 		
+		 		System.out.println("goodbye...");		 		
 		 		System.exit(1);
 		 		break;
 		 	default:
+		 		System.out.println("------------------------------------");
+		 		System.out.println("goodbye...");		 		
+		 		System.exit(1);
 		 		break;
 		}
 		
 	}
 	
 	private void showArrays() {
-		// TODO Auto-generated method stub
-		
 		ArraysList.printArrayList();
 		printMenu();
 	}
@@ -74,26 +73,26 @@ public class UserControls {
 		 	case 1: 
 		 		System.out.println("------------------------------------");
 		 		System.out.println("You Picked Integer Array");
-		 		DemoArray intArr = new DemoArray();
+		 		Array intArr = new Array();
 		 		System.out.println("How long would you like this new Array to be?");		 	
 				int choice1 = scan.nextInt();
-				intArr.createIntegerArray(choice1);
+				intArr.createArray(ArrayEnum.INTEGER, choice1);
 		 		break;
 		 	case 2: 
 		 		System.out.println("------------------------------------");
 		 		System.out.println("You picked String array!"); 
-		 		DemoArray strArr = new DemoArray();
+		 		Array strArr = new Array();
 		 		System.out.println("How long would you like this new Array to be?");		 	
 				int choice2 = scan.nextInt();
-				strArr.createStringArray(choice2);
+				strArr.createArray(ArrayEnum.STRING, choice2);
 		 		break;
 		 	case 3:
 		 		System.out.println("------------------------------------");
 		 		System.out.println("You picked Double array!"); 
-		 		DemoArray dblArr = new DemoArray();
+		 		Array dblArr = new Array();
 		 		System.out.println("How long would you like this new Array to be?");		 	
 				int choice3 = scan.nextInt();
-				dblArr.createDoubleArray(choice3);
+				dblArr.createArray(ArrayEnum.DOUBLE,choice3);
 		 		break;
 		 	
 		 	case 4: 
@@ -104,13 +103,6 @@ public class UserControls {
 		 		break;
 		 		
 		}
-	}
-	
-	
-
-	public void returnToMainMenu() {
-		
-		printMenu();
 	}
 	
 

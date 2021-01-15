@@ -8,6 +8,10 @@ import menu.UserControls;
 import util.ArrayEnum;
 
 public class DemoArray {
+	// Timers
+	static double time = System.nanoTime();
+	
+	
 	
 	// DELCARE ARRAY
 	static int[] intArr1;
@@ -17,26 +21,6 @@ public class DemoArray {
 	// sample array
 	static int[] sampleArr = new int[] {99, 88, 77, 66, 55, 44};
 	
-	
-	public void createIntegerArray(int num) {
-		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
-		for(int i = 0; i < num; i ++) {
-			System.out.println("Chose a number for index: " + i);
-			Scanner scan = new Scanner(System.in);
-			int input = scan.nextInt();
-			newArray.getArray()[i] = input;
-		}
-		
-		System.out.println("your new array looks like this!");
-		System.out.println(newArray.getArray().toString());		
-		
-		System.out.println("\n ------------------------------------------");
-		
-		ArraysList.addToList(newArray);
-		
-		UserControls user = new UserControls();
-		user.returnToMainMenu();
-	}
 	
 	public void showArrayObject() {
 		intArr1 = new int[]{32, 23, 14, 45};
@@ -56,56 +40,23 @@ public class DemoArray {
 		
 	}
 
-	public void createStringArray(int num) {
-		
-		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
-		for(int i = 0; i < num; i ++) {
-			
-			System.out.println("Write a string for index: " + i);
-			Scanner scan = new Scanner(System.in);
-			String input = scan.nextLine();
-			newArray.getArray()[i] = input;
-		}
-		
-		System.out.println("your new array looks like this!");
-		System.out.println(newArray.getArray().toString());
-		
-		
-		System.out.println(newArray);		
 	
-		System.out.println("\n ------------------------------------------");
+	public static boolean searchArray(int s) {
+		double startTime = time;
 		
-		System.out.println(newArray.getArray().toString());
-		
-		UserControls user = new UserControls();
-		user.returnToMainMenu();
-		
-	}
-	
-	public void createDoubleArray(int num) {
-		EnumArrayController newArray = new EnumArrayController(ArrayEnum.INTEGER, num);
-
-		for(int i = 0; i < num; i ++) {
-			System.out.println("Write a double for index: " + i);
-			Scanner scan = new Scanner(System.in);
-			Double input = scan.nextDouble();
-			newArray.getArray()[i] = input;
+		for (int element : sampleArr) {
+		    if (element == s) {
+		    	double endTime = time - startTime;
+				System.out.println(endTime);
+				System.out.println("Found");
+		        return true;
+		    }
 		}
-		
-		System.out.println("your new array looks like this!");
-		System.out.println(newArray.getArray().toString());
-		
-		System.out.println(newArray);
-		
-		System.out.println("\n ------------------------------------------");
-		
-		ArraysList.addToList(newArray);
-		
-		UserControls user = new UserControls();
-		user.returnToMainMenu();
-		
+		double endTime = startTime -time;
+		System.out.println(endTime);
+		System.out.println("Not Found");
+		return false;
 	}
-
 	
 	
 }
